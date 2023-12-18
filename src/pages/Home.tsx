@@ -1,5 +1,8 @@
 import { Box, Flex } from "@chakra-ui/react"
 import Nav from "../components/Nav"
+import CardProfile from "../components/CardProfile"
+import SugestedAccount from "../components/SuggestedAccount"
+
 
 
 export default function Home() {
@@ -9,13 +12,13 @@ export default function Home() {
             <Box w={'23vw'}>
                 <Nav />
             </Box>
-            <Box w={'50vw'}>
+            <Box w={'45vw'}>
                 <h1>Hello World</h1>
             </Box>
-            <Box w={'27vw'}>
-
+            <Box w={'32vw'} backgroundColor={'black'}>
+                <CardProfile />
+                <SugestedAccount />
             </Box>
-
         </Flex>
     )
 }
