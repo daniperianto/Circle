@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Nav() {
     return (
-        <Flex flexDirection="column" bg='black' h='100vh' px={5} pt={3}>
+        <Flex flexDirection="column" bg='#191919' h='100vh' px={5} pt={3}>
             <Box>
                 <Text fontSize={'5xl'} as={'b'} color={'red.600'}>Circle</Text>
             </Box>

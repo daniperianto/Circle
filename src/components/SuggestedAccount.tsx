@@ -1,9 +1,20 @@
 import { Card, CardBody, Text } from "@chakra-ui/react";
 import user_simple from "../mocks/user-simple"
 import CardAccount from "./CardAccount";
+import { API } from "../libs/api";
+
+async function getUser() {
+    try {
+        const response = await API.get("/threads/all")
+        console.log(response.data)
+    } catch(error) {
+        console.log(error)
+    }
+}
+
 
 export default function SugestedAccount() {
-
+    getUser()
 
     return (
         <>

@@ -20,7 +20,7 @@ export default function CardAccount(props: accounts) {
                             h={'30px'}
                             objectFit={'cover'}
                             borderRadius={'full'}
-                            borderColor={'black'}
+                            borderColor={'#191919'}
                             borderWidth={3}
                             borderStyle={'solid'}
                         />

@@ -30,7 +30,7 @@ export default function CardProfile() {
                             h={'60px'}
                             objectFit={'cover'}
                             borderRadius={'full'}
-                            borderColor={'black'}
+                            borderColor={'#191919'}
                             borderWidth={3}
                             borderStyle={'solid'}
                         />
