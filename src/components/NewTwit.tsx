@@ -56,6 +56,7 @@ export default function NewTwit() {
                         paddingX={'15px'}
                         marginLeft={1}
                         marginRight={'auto'}
+                        as={'b'}
                     >Post</Text>
                 </HStack>
             </HStack>
