@@ -3,12 +3,17 @@ import User from "../model/User";
 import { API } from "../libs/api"
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import notification from "../libs/notification";
+import { useDispatch  } from "react-redux";
+import { isJustRegister } from "../store/rootReducer";
 
-import { toast } from "react-toastify";
+
+
 
 
 export function useRegister() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
 
     const[form, setForm] = React.useState<User>({
@@ -25,8 +30,9 @@ export function useRegister() {
     }
 
     async function handleRegister() {
+
         let message: string = ''
-        toast("test2")
+        
 
         outer:
         try {
@@ -35,19 +41,23 @@ export function useRegister() {
                         console.log("success: " + response )
                     }).catch( function (error) {
                         console.log(error.response.data.message)
-                        notify(error.response.data.message, 'error')
                         message = error.response.data.message
                     }) 
 
-                    
+            
+            setForm({
+                fullname: "",
+                email: "",
+                password: ""
+            })
             if(message != '') {
-                window.location.reload()
-                toast("test")
+                notification.error(message)
                 break outer
             }
-            notify("register success", 'info')
-            console.log("success")
+            dispatch(isJustRegister())
+            notification.success("success")
             navigate("/login")
+            
             
         } catch (error) {
             navigate('/register')
@@ -59,7 +69,8 @@ export function useRegister() {
 
     return {
         handleChange,
-        handleRegister
+        handleRegister,
+        form
     }
 }
 

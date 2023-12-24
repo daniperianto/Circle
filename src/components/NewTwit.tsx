@@ -1,11 +1,11 @@
 import { Box, Button, HStack, Image, Input, Text, VisuallyHiddenInput } from "@chakra-ui/react";
 import user_simple from "../mocks/user-simple"
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
-import { useThread } from "../libs/useThread"
+
 
 export default function NewTwit() {
     const user = user_simple[0]
-    const { handleSubmit } = useThread()
+
     
 
 
@@ -14,7 +14,7 @@ export default function NewTwit() {
             <Box backgroundColor={'#191919'} m={3}>
                 <Text color={'#B9B4C7'} fontSize={'3xl'}>Home</Text>
             </Box>
-            <form onSubmit={handleSubmit} >
+            <form  >
             <HStack m={0}>
                     <HStack pl={3} w={'70vw'}>
                     

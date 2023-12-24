@@ -1,10 +1,28 @@
 import { VStack, Text, Input, Button, HStack, Link, FormControl, Center } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import User from "../model/User";
 import authService from "../hooks/useRegister";
+import { ToastContainer } from "react-toastify";
+import notification from "../libs/notification";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store/types/action";
+import { isAlreadyRegister } from "../store/rootReducer";
+
 
 
 export default function Login() {
+    // add register success notification 
+    const dispatch = useDispatch()
+    const isNewlyRegister = useSelector((state: RootState) => state.newlyRegister.isNewlyRegister)
+    useEffect(() => {
+        if(isNewlyRegister) {
+            notification.success("Register sucess!")
+            console.log("success")
+            dispatch(isAlreadyRegister())
+        }
+    }, [isNewlyRegister, dispatch])
+    
+
     const [ user1email, setUser1email ] = useState('')
     const [ password, setPassword ] = useState('')
 
@@ -63,6 +81,7 @@ export default function Login() {
                         >Register</Link>
                 </HStack>
             </VStack>
+            <ToastContainer limit={1}/>
         </Center>
     )
 }

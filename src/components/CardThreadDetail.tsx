@@ -91,7 +91,7 @@ export default function CardThreadDetails(props: Param) {
                         
                     />
                     <Input 
-                        placeholder="What is happening?"
+                        placeholder="Type your comment?"
                         color={'#B9B4C7'}
                         fontSize={'medium'}
                         border={'none'}
