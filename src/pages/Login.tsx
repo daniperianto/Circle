@@ -47,7 +47,7 @@ export default function Login() {
                     <Input type="password" id="password" name="password" my={1} placeholder="Password*" color={'white'} borderColor={'#5C8374'}
                         value={form.password} onChange={handleChange}/>
                     <Text float={'inline-end'} color={'white'} fontSize={'small'}>Forgot password?</Text>
-                    <Button onClick={handleLogin} color={'white'} backgroundColor={'red.500'} w={'100%'} borderRadius={'34px'} m={1}>Create</Button>
+                    <Button onClick={handleLogin} color={'white'} backgroundColor={'red.500'} w={'100%'} borderRadius={'34px'} m={1}>Login</Button>
                 </FormControl>
                 <HStack spacing={0} w={'100%'} mt={2}>
                     <Text color={'white'} mr={2}>Don't have an account yet? </Text>

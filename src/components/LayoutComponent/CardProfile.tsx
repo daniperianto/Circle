@@ -1,19 +1,15 @@
 import { Card, CardBody, HStack, Image, Link, Text } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
-import { API } from "../libs/api"
+import { useUser } from "../../hooks/useUser"
+import { useEffect } from "react"
 
 export default function CardProfile() {
     const user = JSON.parse(localStorage.user)
-    // const [ following, setFollowing ] = useState(0)
-    // const [ followers, setFollowers ] = useState(0)
+    const { following, followers, getFollowing, getFollowers } = useUser()
 
-    // useEffect(() => {
-    //     try {
-    //         const totalFollowing = await API.get(`/`)
-    //     } catch(error) {
-    //         console.log(error)
-    //     }
-    // }, [user.id])
+    useEffect(() => {
+        getFollowers()
+        getFollowing()
+    }, [getFollowers, getFollowing])
 
     return (
         <>
@@ -67,11 +63,11 @@ export default function CardProfile() {
                     <Text marginTop={'-20px'} color={'white'}>{user.fullname}</Text>
                     <Text color={'#B9B4C7'} m={0} fontSize={'x-small'}>{user.username}</Text>
                     <Text color={'#F4EEE0'} fontSize={'small'}>{user.bio}</Text>
-                    <HStack>
-                        <Text color={'white'} fontSize={'smaller'}>{0}</Text>
-                        <Text color={'#B9B4C7'} fontSize={'smaller'} ml={-1}>Following</Text>
-                        <Text color={'white'} fontSize={'smaller'}>{0}</Text>
-                        <Text color={'#B9B4C7'} fontSize={'smaller'} ml={-1}>Followers</Text>
+                    <HStack spacing={0}>
+                        <Text color={'white'} fontSize={'smaller'} mr={1}>{following}</Text>
+                        <Text color={'#B9B4C7'} fontSize={'smaller'} ml={following}>Following</Text>
+                        <Text color={'white'} fontSize={'smaller'} mx={1}>{followers}</Text>
+                        <Text color={'#B9B4C7'} fontSize={'smaller'} ml={followers}>Followers</Text>
                     </HStack>
                 </CardBody>
             </Card>

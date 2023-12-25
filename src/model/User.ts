@@ -4,7 +4,7 @@ interface User {
     email?: string,
     username?: string,
     password?: string,
-    photo_profile?: string
+    photo_profile?: string,
     background_image?: string
 }
 

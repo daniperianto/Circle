@@ -1,10 +1,11 @@
 import { Card, CardBody, HStack, Image, Box, Text, Flex } from "@chakra-ui/react"
 
 interface accounts {
-    photoProfile: string,
-    fullname: string,
-    username: string,
-    isFollowing: boolean
+    photoProfile: string | undefined,
+    fullname: string | undefined,
+    username: string | undefined,
+    isFollowing: boolean,
+    id: number | undefined
 }
 
 export default function CardAccount(props: accounts) {

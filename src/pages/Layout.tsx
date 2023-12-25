@@ -1,7 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react"
-import Nav from "../components/Nav"
-import CardProfile from "../components/CardProfile"
-import SugestedAccount from "../components/SuggestedAccount"
+import Nav from "../components/LayoutComponent/Nav"
+import CardProfile from "../components/LayoutComponent/CardProfile"
+import SugestedAccount from "../components/LayoutComponent/SuggestedAccount"
 import Creator from "../components/Creator"
 import { PropsWithChildren } from "react"
 
