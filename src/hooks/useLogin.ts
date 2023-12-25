@@ -40,13 +40,18 @@ export function useLogin() {
 
         const response = await API.post("/login", login)
 
-        dispatch(AUTH_LOGIN(response.data))
-        navigate("/")
         
+        dispatch(AUTH_LOGIN(response.data))
+        setForm({
+            user1email: "",
+            password: ""
+        })
+        navigate("/")
     }
 
     return {
         handleChange,
-        handleLogin
+        handleLogin,
+        form
     }
 }

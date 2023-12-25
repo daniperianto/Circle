@@ -56,7 +56,11 @@ export function useThread() {
         formData.append("content", form.content)
         formData.append("image", form.image as File)
 
-        API.post("/thread", formData)
+        API.post("/thread/add", formData)
+        setform({
+            content: "",
+            image: ""
+        })
         refetch()
     }
 

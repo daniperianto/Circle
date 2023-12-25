@@ -1,16 +1,27 @@
 import { Card, CardBody, HStack, Image, Link, Text } from "@chakra-ui/react"
-import users from "../mocks/user"
-
+import { useEffect, useState } from "react"
+import { API } from "../libs/api"
 
 export default function CardProfile() {
-    const user = users[0]
+    const user = JSON.parse(localStorage.user)
+    // const [ following, setFollowing ] = useState(0)
+    // const [ followers, setFollowers ] = useState(0)
+
+    // useEffect(() => {
+    //     try {
+    //         const totalFollowing = await API.get(`/`)
+    //     } catch(error) {
+    //         console.log(error)
+    //     }
+    // }, [user.id])
+
     return (
         <>
             <Card style={{backgroundColor:'#352F44'}} m={3}>
                 <CardBody padding={3} >
                     <Text fontSize={'md'} as={'b'} color={'white'}>My Profile</Text>          
                     <Image 
-                        src={user["background-image"]} 
+                        src={user.background_image} 
                         alt="background-image" 
                         w={'100%'}
                         h={'70px'}
@@ -21,7 +32,7 @@ export default function CardProfile() {
                         />
                     <HStack m={0}>
                         <Image 
-                            src={user["photo-profile"]}
+                            src={user.photo_profile}
                             alt="background-image"
                             position={'relative'}
                             left={'20px'}
@@ -57,9 +68,9 @@ export default function CardProfile() {
                     <Text color={'#B9B4C7'} m={0} fontSize={'x-small'}>{user.username}</Text>
                     <Text color={'#F4EEE0'} fontSize={'small'}>{user.bio}</Text>
                     <HStack>
-                        <Text color={'white'} fontSize={'smaller'}>{user.following}</Text>
+                        <Text color={'white'} fontSize={'smaller'}>{0}</Text>
                         <Text color={'#B9B4C7'} fontSize={'smaller'} ml={-1}>Following</Text>
-                        <Text color={'white'} fontSize={'smaller'}>{user.followers}</Text>
+                        <Text color={'white'} fontSize={'smaller'}>{0}</Text>
                         <Text color={'#B9B4C7'} fontSize={'smaller'} ml={-1}>Followers</Text>
                     </HStack>
                 </CardBody>
