@@ -1,8 +1,17 @@
 import { Box, Button, Flex, Spacer, Text } from "@chakra-ui/react";
 import { faArrowRightFromBracket, faHeart, faHouse, faMagnifyingGlass, faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { AUTH_LOGOUT } from "../../store/rootReducer";
 
 export default function Nav() {
+    const dispatch = useDispatch()
+
+    function logOut() {
+        dispatch(AUTH_LOGOUT())
+    }
+
     return (
         <Flex flexDirection="column" bg='#191919' h='100vh' px={5} pt={3}>
             <Box>
@@ -17,7 +26,9 @@ export default function Nav() {
             </Box>
             <Spacer />
             <Box h='10vh' px={2}>
-                <Text color={'white'}><FontAwesomeIcon style={{marginRight:"10px", color:"#ffffff"}} icon={faArrowRightFromBracket} rotation={180} />Logout</Text>
+                <Link to={'/login'} onClick={logOut} style={{textDecoration: 'none', color: "#ffffff"}}>
+                    <FontAwesomeIcon style={{marginRight:"10px", color:"#ffffff"}} icon={faArrowRightFromBracket} rotation={180} />
+                    Logout</Link>
             </Box>
         </Flex>
     )

@@ -2,6 +2,9 @@
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CardThread from '../components/HomeComponent/CardThread';
+import Feed from '../components/HomeComponent/Feed';
+import { Center } from '@chakra-ui/react';
 
 export default function Test(){
 
@@ -10,9 +13,9 @@ export default function Test(){
   }
 
   return (
-    <div>
+    <Center>
       <button onClick={handleClick}>Notify!</button>
-      <ToastContainer />
-    </div>
+      <Feed  />
+    </Center>
   );
 }

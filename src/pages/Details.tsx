@@ -1,8 +1,8 @@
 
 import { useParams } from "react-router-dom";
-import CardThreadDetails from "../components/CardThreadDetail";
+import CardThreadDetails from "../components/DetailThreadComponent/CardThreadDetail";
 import Layout from "./Layout";
-import ThreadReply from "../components/ThreadReply";
+import ThreadReply from "../components/DetailThreadComponent/ThreadReply";
 
 export default function Details() {
     const { id } = useParams()

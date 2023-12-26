@@ -1,5 +1,5 @@
 interface Thread {
-    id?: number,
+    id?: number ,
     content: string,
     image: string,
     created_at?: Date,

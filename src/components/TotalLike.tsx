@@ -3,7 +3,7 @@ import { API } from "../libs/api"
 import { Text } from "@chakra-ui/react"
 
 interface like {
-    id: number
+    id: number | undefined
 }
 
 

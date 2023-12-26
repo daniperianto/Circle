@@ -30,16 +30,13 @@ export default function Feed() {
         <Box mt={3}>
             {
                 threads.map( (post) => (
-                    <Link key={post.id} to={`/details/${post.id}`}>
-                        <CardThread id={post.id}
-                        user={post.user}
-                        created_at={post.created_at}
-                        content={post.content}
-                        image={post.image}
-                        total_likes={post.total_likes}
-                        />
-                    </Link>
-                    
+                    <CardThread key={post.id} id={post.id}
+                    user={post.user}
+                    created_at={post.created_at}
+                    content={post.content}
+                    image={post.image}
+                    total_likes={post.total_likes}
+                    />
                 ))
             }
         </Box>

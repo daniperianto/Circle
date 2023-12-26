@@ -3,7 +3,7 @@ import { API } from "../libs/api"
 import { Text } from "@chakra-ui/react"
 
 interface reply {
-    id: number
+    id: number | undefined
 }
 
 export default function TotalReplies(props: reply) {
