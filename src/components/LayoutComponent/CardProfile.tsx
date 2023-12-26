@@ -65,9 +65,9 @@ export default function CardProfile() {
                     <Text color={'#F4EEE0'} fontSize={'small'}>{user.bio}</Text>
                     <HStack spacing={0}>
                         <Text color={'white'} fontSize={'smaller'} mr={1}>{following}</Text>
-                        <Text color={'#B9B4C7'} fontSize={'smaller'} ml={following}>Following</Text>
+                        <Text color={'#B9B4C7'} fontSize={'smaller'} >Following</Text>
                         <Text color={'white'} fontSize={'smaller'} mx={1}>{followers}</Text>
-                        <Text color={'#B9B4C7'} fontSize={'smaller'} ml={followers}>Followers</Text>
+                        <Text color={'#B9B4C7'} fontSize={'smaller'} >Followers</Text>
                     </HStack>
                 </CardBody>
             </Card>

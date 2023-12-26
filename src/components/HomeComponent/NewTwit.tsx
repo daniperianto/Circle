@@ -1,6 +1,6 @@
 import { Box, Button, FormControl, HStack, Image, Input, Text, VisuallyHiddenInput } from "@chakra-ui/react";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
-import { useThread } from "../hooks/useThread";
+import { useThread } from "../../hooks/useThread";
 
 
 export default function NewTwit() {

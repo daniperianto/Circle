@@ -1,14 +1,18 @@
-import { Card, CardBody, HStack, Image, Box, Text, Flex } from "@chakra-ui/react"
+import { Card, CardBody, HStack, Image, Box, Text, Flex, Button } from "@chakra-ui/react"
+import { useUser } from "../../hooks/useUser"
 
 interface accounts {
     photoProfile: string | undefined,
     fullname: string | undefined,
     username: string | undefined,
-    isFollowing: boolean,
     id: number | undefined
 }
 
 export default function CardAccount(props: accounts) {
+    const { isFollowing, isFollowingChange } = useUser()
+
+
+
     return (
         <>
             <Card backgroundColor={'#352F44'} >
@@ -33,8 +37,9 @@ export default function CardAccount(props: accounts) {
                             marginRight={'0px'}
                             marginLeft={'auto'}>
                             {
-                                props.isFollowing && 
-                                <Text 
+                                isFollowing && 
+                                <Button 
+                                    size={'small'}
                                     style={{textDecoration:'none'}}
                                     backgroundColor={'#352F44'}
                                     borderRadius={'20px'}
@@ -43,15 +48,16 @@ export default function CardAccount(props: accounts) {
                                     borderStyle={'solid'}
                                     borderWidth={1}
                                     fontSize={'11px'}
-                                    paddingTop={'1px'}
-                                    paddingBottom={'1px'}
-                                    
+                                    paddingTop={'2px'}
+                                    paddingBottom={'2px'}
                                     paddingX={'10px'}
-                                >Following</Text>
+                                    onClick={() => isFollowingChange(props.id)}
+                                >Following</Button>
                             }
                             {
-                                !props.isFollowing && 
-                                <Text 
+                                !isFollowing && 
+                                <Button 
+                                    size={'small'}
                                     style={{textDecoration:'none'}}
                                     backgroundColor={'#352F44'}
                                     borderRadius={'20px'}
@@ -60,11 +66,11 @@ export default function CardAccount(props: accounts) {
                                     borderStyle={'solid'}
                                     borderWidth={1}
                                     fontSize={'11px'}
-                                    paddingTop={'1px'}
-                                    paddingBottom={'1px'}
-                                    
+                                    paddingTop={'2px'}
+                                    paddingBottom={'2px'}
                                     paddingX={'10px'}
-                                >Follow</Text>
+                                    onClick={() => isFollowingChange(props.id)}
+                                >Follow</Button>
                             }
                         </Box>
                         

@@ -11,7 +11,7 @@ export default function SugestedAccount() {
 
     useEffect(() => {
         getSuggestedAccount()
-    }, [getSuggestedAccount])
+    }, [])
 
     return (
         <>  {
@@ -24,11 +24,10 @@ export default function SugestedAccount() {
                             <Text color={'white'} mb={2}>Suggested For You</Text>
                             {
                                 suggestedAccount?.map( (user) => (
-                                    <CardAccount 
+                                    <CardAccount key={user.id}
                                         photoProfile={user.photo_profile} 
                                         fullname={user.fullname}
                                         username={user.username}
-                                        isFollowing={false}
                                         id={user.id}/>      
                                 ))
                             }

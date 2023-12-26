@@ -2,9 +2,9 @@ import { HStack, VStack, Text, Image } from '@chakra-ui/react';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BiMessageAltDetail } from "react-icons/bi";
-import Thread from '../model/Thread';
-import TotalLike from './TotalLike';
-import TotalReplies from './TotalReplies';
+import Thread from '../../model/Thread';
+import TotalLike from '../TotalLike';
+import TotalReplies from '../TotalReplies';
 
 
 

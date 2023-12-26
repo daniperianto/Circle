@@ -4,9 +4,9 @@ interface Thread {
     image: string,
     created_at?: Date,
     user?: {
-        username: string,
-        fullname: string,
-        photo_profile: string,
+        username?: string,
+        fullname?: string,
+        photo_profile?: string,
     },
     total_likes?: number
 }

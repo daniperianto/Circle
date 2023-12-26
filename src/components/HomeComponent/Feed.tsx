@@ -1,9 +1,9 @@
 import { Box } from "@chakra-ui/react";
 import CardThread from "./CardThread";
 import { useEffect, useState } from "react";
-import { API } from "../libs/api";
+import { API } from "../../libs/api";
 import { Link } from "react-router-dom";
-import Thread from "../model/Thread";
+import Thread from "../../model/Thread";
 
 
 
@@ -12,7 +12,7 @@ export default function Feed() {
 
     try {
         useEffect(() => {
-            API.get("/threads/all")
+            API.get("/threads/following")
             .then(function (response) {
                 setThreads(response.data)
             })
@@ -30,7 +30,7 @@ export default function Feed() {
         <Box mt={3}>
             {
                 threads.map( (post) => (
-                    <Link to={`/details/${post.id}`}>
+                    <Link key={post.id} to={`/details/${post.id}`}>
                         <CardThread id={post.id}
                         user={post.user}
                         created_at={post.created_at}
