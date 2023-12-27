@@ -2,7 +2,6 @@ import { Box } from "@chakra-ui/react";
 import CardThread from "./CardThread";
 import { useEffect, useState } from "react";
 import { API } from "../../libs/api";
-import { Link } from "react-router-dom";
 import Thread from "../../model/Thread";
 
 

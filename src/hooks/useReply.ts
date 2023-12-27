@@ -52,12 +52,14 @@ export function useReply(id: number) {
         formData.append("content", form.content)
         formData.append("image", form.image as File)
 
+        console.log(form.image)
+
         API.post(`/thread/${id}/reply/add`, formData)
         setForm({
             content: "",
             image: ""
         })
-        window.location.reload()
+        //window.location.reload()
     }
 
     return {

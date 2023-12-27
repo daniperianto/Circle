@@ -9,6 +9,8 @@ import { API, setAuthToken } from "./libs/api"
 import { AUTH_ERROR } from "./store/rootReducer"
 import React from "react"
 import User from "./model/User"
+import Follows from "./pages/Follows"
+import Search from "./pages/Search"
 
 export default function App() {
   const dispatch = useDispatch()
@@ -62,6 +64,8 @@ export default function App() {
     <Route path="/" element={<IsLogin />}>
       <Route path="/" element={<Home /> }/>
       <Route path="/details/:id" element={<Details />} />
+      <Route path="/follows" element={<Follows />} />
+      <Route path="/search" element={<Search />} />
     </Route>
 
     <Route path="/" element={<IsNotLogin />}>

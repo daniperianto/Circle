@@ -67,6 +67,7 @@ export function useUser() {
         following,
         suggestedAccount,
         isFollowing,
+        setIsFollowing,
         getFollowers,
         getFollowing,
         getSuggestedAccount,

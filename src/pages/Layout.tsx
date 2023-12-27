@@ -23,7 +23,7 @@ export default function Layout(props: PropsWithChildren) {
                 {props.children}
             </Box>
             <Box w={'32vw'}></Box>
-            <Box w={'32vw'} h={'100vh'} position={'fixed'} left={'67vw'}
+            <Box w={'32vw'} h={'100vh'} position={'fixed'} left={'68vw'}
                 backgroundColor={'#191919'}  
                 borderLeft={'1px'}
                 borderColor={'red.700'}>

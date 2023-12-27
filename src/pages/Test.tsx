@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import CardThread from '../components/HomeComponent/CardThread';
 import Feed from '../components/HomeComponent/Feed';
 import { Center } from '@chakra-ui/react';
+import Follows from './Follows';
 
 export default function Test(){
 
@@ -13,9 +14,8 @@ export default function Test(){
   }
 
   return (
-    <Center>
-      <button onClick={handleClick}>Notify!</button>
-      <Feed  />
+    <Center w={'50vw'} mx={'auto'}>
+      <Follows  />
     </Center>
   );
 }

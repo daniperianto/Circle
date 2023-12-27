@@ -7,12 +7,25 @@ export function useLike(threadId: number) {
 
     async function isLiked() {
         try {
-            const response = await API.get(`/threads/${threadId}/like`)
+            const response = await API.get(`/thread/${threadId}/like`)
 
             setIsLike(response.data)
         } catch(error) {
             console.log(error)
-            throw new Error
+        }
+    }
+
+    async function handleClick() {
+        if(isLike) {
+            
+            await API.delete(`thread/${threadId}/like`)
+            setIsLike(false)
+            
+        } else {
+            
+            await API.post(`thread/${threadId}/like`)
+            setIsLike(true)
+            
         }
     }
 
@@ -31,6 +44,7 @@ export function useLike(threadId: number) {
         isLike,
         totalLikes,
         isLiked,
-        getTotalLikes
+        getTotalLikes,
+        handleClick
     }
 }
