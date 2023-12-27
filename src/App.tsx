@@ -34,7 +34,6 @@ export default function App() {
     } catch (error) {
       dispatch(AUTH_ERROR())
       console.log("error" + error)
-      navigate("/login")
     }
   }
 

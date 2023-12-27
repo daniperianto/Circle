@@ -48,7 +48,7 @@ export default function CardAccountWithBio(props: accounts) {
                         <Flex flexDirection={'column'} p={0}>
                             <Text color={'white'} fontSize={'small'} m={0}>{props.fullname}</Text>
                             <Text color={'#B9B4C7'} m={0} fontSize={'x-small'} margin={0}>{props.username}</Text>
-                            <Text color={'#F4EEE0'} m={0} fontSize={'small'}>{props.bio}</Text>
+                            <Text color={'#F4EEE0'} m={0} fontSize={'small'} mb={1}>{props.bio}</Text>
                         </Flex>
                         <Box 
                             marginRight={'0px'}
@@ -59,10 +59,10 @@ export default function CardAccountWithBio(props: accounts) {
                                     size={'small'}
                                     style={{textDecoration:'none'}}
                                     backgroundColor={'#352F44'}
-                                    borderRadius={'20px'}
                                     color={'#B9B4C7'}
                                     borderColor={'#B9B4C7'}
                                     borderStyle={'solid'}
+                                    borderRadius={'20px'}
                                     borderWidth={1}
                                     fontSize={'11px'}
                                     paddingTop={'2px'}

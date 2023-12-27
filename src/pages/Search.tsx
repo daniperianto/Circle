@@ -1,25 +1,16 @@
 import { HStack, Input, VStack } from "@chakra-ui/react";
 import Layout from "./Layout";
 import { RiUserSearchLine } from "react-icons/ri";
-import { useEffect, useState } from "react";
-import User from "../model/User";
-import { API } from "../libs/api";
+import { useEffect } from "react";
+import CardAccountWithBio from "../components/CardAccountWithBio";
+import useSearch from "../hooks/useSearch";
 
 export default function Search() {
-    const [ search, setSearch ] = useState('')
-    const [ users, setUsers ] = useState<User>([])
+    const { search, users, handleChange, getResult } = useSearch()
 
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setSearch(e.target.value)
-    }
-
-    async function getResult() {
-        try {
-            const result = await API
-        } catch(error) {
-            console.log(error)
-        }
-    }
+    useEffect(() => {
+        getResult()
+    }, [search])
 
 
 
@@ -44,13 +35,22 @@ export default function Search() {
                         type="text"
                         value={search}
                         onChange={handleChange}
+                        placeholder="Search user"
                         p={1}
                         color={'white'}
                         border={'none'}
                         borderRightRadius={'30px'} />
                 </HStack>
                 {
-
+                    users.map((user) => (
+                        <CardAccountWithBio 
+                            id={user.id}
+                            photoProfile={user.photo_profile}
+                            fullname={user.fullname}
+                            username={user.username}
+                            bio={user.bio}
+                            />
+                    ))
                 }
             </VStack>
         </Layout>
