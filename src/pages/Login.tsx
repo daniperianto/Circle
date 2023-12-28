@@ -6,10 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/types/action";
 import { isAlreadyRegister } from "../store/rootReducer";
 import { useLogin } from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function Login() {
+    const navigate = useNavigate()
+    
     // add register success notification 
     const dispatch = useDispatch()
     const isNewlyRegister = useSelector((state: RootState) => state.newlyRegister.isNewlyRegister)
@@ -23,6 +26,8 @@ export default function Login() {
     
 
     const { handleLogin, handleChange, form } = useLogin()
+
+
     
 
 

@@ -3,11 +3,23 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TotalLike from '../TotalLike';
 import Reply from '../../model/Reply';
+import { useEffect, useState } from 'react';
+import { TimeInterval } from '../../libs/timeToString.ts';
 
 
 
 
 export default function CardReply(props: Reply) {
+    const [ time, setTime ] = useState('')
+
+    useEffect(() => {
+        if(props.created_at) {
+            const time = new Date(props.created_at)
+            setTime(TimeInterval(time))
+        }
+    }, [])
+
+
     return (
         <HStack mx={3} borderTop={'1px'} borderColor={'#B9B4C7'}>
             <Image 
@@ -28,7 +40,7 @@ export default function CardReply(props: Reply) {
                 <HStack w={'100%'} m={0} spacing={0}>
                     <Text color={'white'} fontSize={'small'} mr={1}>{props.user.fullname}</Text>
                     <Text color={'#B9B4C7'} fontSize={'small'}>{props.user.username}  ·</Text>
-                    <Text color={'#B9B4C7'} fontSize={'small'} mx={1}>{props.created_at.toString()}</Text>
+                    <Text color={'#B9B4C7'} fontSize={'small'} mx={1}>{time}</Text>
                 </HStack >
                 <Text color={'#F4EEE0'} fontSize={'small'} w={'100%'} >{props.content}</Text>
                 {

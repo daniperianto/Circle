@@ -5,8 +5,9 @@ interface User {
     username?: string,
     password?: string,
     photo_profile?: string,
-    background_image?: string
-    bio?: string
+    background_image?: string,
+    bio?: string,
+    created_at?: Date
 }
 
 export default User

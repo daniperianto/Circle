@@ -1,4 +1,4 @@
-import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom"
+import { Navigate, Outlet, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import Details from "./pages/Details"
 import Register from "./pages/Register"
@@ -11,10 +11,11 @@ import React from "react"
 import User from "./model/User"
 import Follows from "./pages/Follows"
 import Search from "./pages/Search"
+import Profile from "./pages/Profile"
+import EditProfile from "./pages/EditProfile"
 
 export default function App() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   let user: User = {
     username: ''
   }
@@ -27,9 +28,6 @@ export default function App() {
 
       await API.get("/check")
                         
-                        
-
-      
 
     } catch (error) {
       dispatch(AUTH_ERROR())
@@ -65,6 +63,8 @@ export default function App() {
       <Route path="/details/:id" element={<Details />} />
       <Route path="/follows" element={<Follows />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/edit-profile" element={<EditProfile /> } />
     </Route>
 
     <Route path="/" element={<IsNotLogin />}>

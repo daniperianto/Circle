@@ -10,6 +10,7 @@ const initialAuthState: User = {
     background_image: ""
 }
 
+
 export const authSlice = createSlice({
     name: "auth",
     initialState: initialAuthState,
@@ -30,7 +31,7 @@ export const authSlice = createSlice({
             }
 
             state = user
-
+            
 
             return user
         },
@@ -44,10 +45,12 @@ export const authSlice = createSlice({
         AUTH_ERROR: () => {
             localStorage.removeItem("token")
             localStorage.removeItem("user")
+            
         },
         AUTH_LOGOUT: () => {
             localStorage.removeItem("token")
             localStorage.removeItem("user")
+            
         }
     }
 })

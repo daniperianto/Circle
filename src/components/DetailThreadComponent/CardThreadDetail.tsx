@@ -9,6 +9,7 @@ import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import TotalLike from "../TotalLike";
 import TotalReplies from "../TotalReplies";
 import { useReply } from "../../hooks/useReply";
+import { timeToString, TimeInterval } from "../../libs/timeToString";
 
 interface Param {
     id: number
@@ -16,22 +17,31 @@ interface Param {
 
 export default function CardThreadDetails(props: Param) {
     const [ thread, setThread] = useState<Thread>()
+    const [ time, setTime ] = useState('')
     const id = props.id
     const user = JSON.parse(localStorage.user)
     const { handleChange, fileInputRef, form, handleSubmit } = useReply(id)
 
-    try {
-        useEffect(() => {
-            API.get(`/thread/${id}`)
-            .then(function (response) {
-                setThread(response.data)
-            })
-            
-        }, [id])
+    async function getThread() {
+        try {
+            const response = await API.get(`/thread/${id}`)
+            setThread(response.data)
+            setTime(timeToString(new Date(response.data.created_at)))
+            console.log(response.data.created_at)
+            console.log(new Date(response.data.created_at))
+        } catch(error) {
+            console.log(error)
+        }
         
-    } catch(error) {
-        console.log(error)
     }
+
+    
+    useEffect(() => {
+        getThread()
+        
+        
+    }, [])
+   
 
     return (
         <VStack spacing={0} m={3}>
@@ -57,7 +67,7 @@ export default function CardThreadDetails(props: Param) {
             </HStack>
             <Text color={'#F4EEE0'} fontSize={'small'} my={2} w={'100%'}>{thread?.content}</Text>
             <Image src={thread?.image} />
-            <Text color={'#B9B4C7'} mt={2} fontSize={'small'} w={'100%'}>{thread?.created_at.toString()}</Text>
+            <Text color={'#B9B4C7'} mt={2} fontSize={'small'} w={'100%'}>{time}</Text>
             <HStack w={'100%'} my={2}>
                 {
                     true && (

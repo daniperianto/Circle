@@ -2,6 +2,8 @@ import { useState } from "react"
 import { API } from "../libs/api"
 import User from "../model/User"
 import { useNavigate } from "react-router-dom"
+import {toast} from "react-toastify";
+import promise = toast.promise;
 
 export function useUser() {
     const user = JSON.parse(localStorage.user)
@@ -21,13 +23,24 @@ export function useUser() {
     async function isFollowingChange(id: number | undefined) {
         try {
             if(isFollowing) {
-                const following = await API.delete(`/following/delete/${id}`)
-                if(following.data.message == "success") setIsFollowing(false)
-                if(following.status == 401) navigate("/login")
+                await API.delete(`/following/delete/${id}`)
+                    .then( function (response) {
+                        if(response.data.message == "success") setIsFollowing(false)
+                    })
+                    .catch( function (error)  {
+                        if(error.response.data.message == "failed") setIsFollowing(false)
+                        if(error.response.status == 401) navigate("/login")
+                })
             } else {
-                const following = await API.post(`/following/add/${id}`)
-                if(following.data.message == "success") setIsFollowing(true)
-                if(following.status == 401) navigate("/login")
+                await API.post(`/following/add/${id}`)
+                    .then( function (response) {
+                        if(response.data.message == "success") setIsFollowing(true)
+                    })
+                    .catch( function (error) {
+                        if(error.response.data.message == "failed") setIsFollowing(true)
+                        if(error.response.data.message == "query error") setIsFollowing(true)
+                        if(error.response.status == 401) navigate("/login")
+                    })
             }
         } catch (error) {
             console.log(error)

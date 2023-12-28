@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { API } from "../libs/api";
 
-export function useLike(threadId: number) {
+export function useLike(threadId: number | undefined) {
     const [ isLike, setIsLike ] = useState(false)
     const [ totalLikes, setTotalLikes ] = useState(0)
 

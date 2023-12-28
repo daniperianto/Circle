@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Reply from "../../model/Reply";
 import { API } from "../../libs/api";
-import CardReply from "../HomeComponent/CardReply";
+import CardReply from "./CardReply";
 
 
 interface Param {

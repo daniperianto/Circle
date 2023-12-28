@@ -1,28 +1,34 @@
 import { HStack, VStack, Text, Image, Link, Box } from '@chakra-ui/react';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BiMessageAltDetail } from "react-icons/bi";
 import Thread from '../../model/Thread';
 import TotalLike from '../TotalLike';
 import TotalReplies from '../TotalReplies';
 import { useLike } from '../../hooks/useLike';
-import { CiHeart } from "react-icons/ci";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { TimeInterval} from '../../libs/timeToString.ts';
 
 
 export default function CardThread(props: Thread) {
     const { isLike, isLiked, handleClick } = useLike(props.id)
+    const [ time, setTime ] = useState('')
+
+    
+    
 
     useEffect(() => {
         isLiked()
+        if(props.created_at) {
+            const time = new Date(props.created_at)
+            setTime(TimeInterval(time))
+        }
     }, [])
 
     return (
         <VStack spacing={0} borderTop={'1px'} borderColor={'#B9B4C7'}>
             <HStack w={'100%'} mx={3} spacing={0}>
                 <Image 
-                    src={props.user.photo_profile}
+                    src={props.user?.photo_profile}
                     w={'35px'}
                     h={'35px'}
                     mr={2}
@@ -36,9 +42,9 @@ export default function CardThread(props: Thread) {
                     mb={'auto'}
                 />
                 <HStack spacing={0} position={'relative'} bottom={2}>
-                    <Text color={'white'} fontSize={'small'} mr={1}>{props.user.fullname}</Text>
-                    <Text color={'#B9B4C7'} fontSize={'small'}>{props.user.username}  ·</Text>
-                    <Text color={'#B9B4C7'} fontSize={'small'} mx={1}>{props.created_at.toString()}</Text>
+                    <Text color={'white'} fontSize={'small'} mr={1}>{props.user?.fullname}</Text>
+                    <Text color={'#B9B4C7'} fontSize={'small'}>{props.user?.username}  ·</Text>
+                    <Text color={'#B9B4C7'} fontSize={'small'} mx={1}>{time}</Text>
                 </HStack>
             </HStack>
 

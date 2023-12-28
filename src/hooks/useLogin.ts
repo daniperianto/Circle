@@ -13,8 +13,6 @@ interface UserLogin {
 }
 
 export function useLogin() {
-    
-    
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -46,7 +44,9 @@ export function useLogin() {
             user1email: "",
             password: ""
         })
-        navigate("/")
+        
+        window.location.reload()
+
     }
 
     return {

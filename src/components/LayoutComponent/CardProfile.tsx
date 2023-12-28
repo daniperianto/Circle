@@ -3,7 +3,8 @@ import { useUser } from "../../hooks/useUser"
 import { useEffect } from "react"
 
 export default function CardProfile() {
-    const user = JSON.parse(localStorage.user)
+    let user;
+    if(localStorage.user) user = JSON.parse(localStorage.user)
     const { following, followers, getFollowing, getFollowers } = useUser()
 
     useEffect(() => {
