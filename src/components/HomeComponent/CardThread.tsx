@@ -22,6 +22,7 @@ export default function CardThread(props: Thread) {
             const time = new Date(props.created_at)
             setTime(TimeInterval(time))
         }
+        // eslint-disable-next-line
     }, [])
 
     return (

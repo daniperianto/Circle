@@ -9,7 +9,8 @@ import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import TotalLike from "../TotalLike";
 import TotalReplies from "../TotalReplies";
 import { useReply } from "../../hooks/useReply";
-import { timeToString, TimeInterval } from "../../libs/timeToString";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { timeToString } from "../../libs/timeToString";
 
 interface Param {
     id: number
@@ -40,6 +41,7 @@ export default function CardThreadDetails(props: Param) {
         getThread()
         
         
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
    
 

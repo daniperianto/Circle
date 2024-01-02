@@ -15,7 +15,7 @@ export const authSlice = createSlice({
     name: "auth",
     initialState: initialAuthState,
     reducers: {
-        AUTH_LOGIN: (state, action) => {
+        AUTH_LOGIN: (_state, action) => {
             const payload = action.payload
 
             setAuthToken(payload.token)
@@ -30,22 +30,35 @@ export const authSlice = createSlice({
                 background_image: payload.registeredUser.background_image
             }
 
-            state = user
-            
 
             return user
         },
         AUTH_CHECK: (_, action) => {
             const payload = action.payload
             const a = payload
-            
+
 
             return a
         },
         AUTH_ERROR: () => {
             localStorage.removeItem("token")
             localStorage.removeItem("user")
-            
+
+        },
+        AUTH_UPDATE: (_, action) => {
+            const payload = action.payload
+
+            const user: User = {
+                id: payload.id,
+                fullname: payload.fullname,
+                username: payload.username,
+                photo_profile: payload.photo_profile,
+                background_image: payload.background_image,
+                bio: payload.bio,
+                created_at: payload.created_at
+            }
+
+            localStorage.setItem("user", JSON.stringify(user))
         },
         AUTH_LOGOUT: () => {
             localStorage.removeItem("token")

@@ -7,10 +7,12 @@ export default function CardProfile() {
     if(localStorage.user) user = JSON.parse(localStorage.user)
     const { following, followers, getFollowing, getFollowers } = useUser()
 
+    console.log(user)
+
     useEffect(() => {
         getFollowers()
         getFollowing()
-    }, [getFollowers, getFollowing])
+    }, [])
 
     return (
         <>

@@ -1,7 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { HStack, VStack, Text, Image } from '@chakra-ui/react';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TotalLike from '../TotalLike';
 import Reply from '../../model/Reply';
 import { useEffect, useState } from 'react';
 import { TimeInterval } from '../../libs/timeToString.ts';
@@ -48,23 +46,6 @@ export default function CardReply(props: Reply) {
                         <Image my={2} src={props.image} />
                     )
                 }
-                <HStack w={'100%'} mb={2}>
-                    {
-                        true && (
-                            <FontAwesomeIcon icon={faHeart}
-                                            style={{
-                                                color:"red",
-                                                fontSize:"15px"
-                                            }} />
-                        )
-                    }
-                    {
-                        !true && (
-                            <FontAwesomeIcon icon={faHeart} />
-                        )
-                    }
-                    <TotalLike id={props.id}/>
-                </HStack>
             </VStack>
         </HStack>
     )

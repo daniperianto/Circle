@@ -28,6 +28,7 @@ export default function CardMainProfile(props: User) {
     const [ time, setTime ] = useState('')
     const [ threads, setTreads ] = useState<Thread[]>()
 
+
     async function getThreads() {
         try {
             const response = await API.get(`/threads/user/${props.id}`)
@@ -42,7 +43,7 @@ export default function CardMainProfile(props: User) {
         getFollowing()
         setTime(monthYearToString(new Date(props.created_at)))
         getThreads()
-    }, [getFollowers, getFollowing])
+    }, [])
 
     return (
         <>
@@ -93,7 +94,7 @@ export default function CardMainProfile(props: User) {
                     </HStack>
                     <Text marginTop={'-45px'} fontSize={'xx-large'} mb={0} color={'white'}>{props.fullname}</Text>
                     <Text color={'#B9B4C7'} mt={-2} mb={2} fontSize={'medium'}>{props.username}</Text>
-                    <Text color={'#F4EEE0'} m={2}  fontSize={'medium'}>{props.bio}</Text>
+                    <Text color={'#F4EEE0'} my={2}  fontSize={'medium'}>{props.bio}</Text>
                     <HStack spacing={2} >
                         <FontAwesomeIcon icon={faCalendarDays} size="1x" style={{color: '#F4EEE0',}} />
                         <Text color={'#F4EEE0'} >Joined {time}</Text>

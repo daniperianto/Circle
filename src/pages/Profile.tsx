@@ -13,6 +13,7 @@ export default function Profile() {
                 photo_profile={user.photo_profile}
                 background_image={user.background_image}
                 created_at={user.created_at}
+                bio={user.bio}
             />
         </Layout>
     )
