@@ -1,6 +1,6 @@
 import User from "../../model/User"
-import { createSlice } from "@reduxjs/toolkit"
-import { setAuthToken } from  "../../libs/api"
+import {createSlice} from "@reduxjs/toolkit"
+import {setAuthToken} from "../../libs/api"
 
 const initialAuthState: User = {
     id: 0,
@@ -27,15 +27,14 @@ export const authSlice = createSlice({
                 fullname: payload.registeredUser.fullname,
                 username: payload.registeredUser.username,
                 photo_profile: payload.registeredUser.photo_profile,
-                background_image: payload.registeredUser.background_image
+                background_image: payload.registeredUser.background_image,
             }
 
 
             return user
         },
         AUTH_CHECK: (_, action) => {
-            const payload = action.payload
-            const a = payload
+            const a = action.payload
 
 
             return a

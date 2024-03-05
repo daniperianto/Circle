@@ -14,4 +14,6 @@ export const newlyRegisterSlice = createSlice ({
         }
     }
 
+    
+
 })

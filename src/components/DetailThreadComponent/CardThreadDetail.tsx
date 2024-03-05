@@ -46,7 +46,7 @@ export default function CardThreadDetails(props: Param) {
    
 
     return (
-        <VStack spacing={0} m={3}>
+        <VStack spacing={0} m={3} ml={6} >
             <HStack spacing={3} w={'100%'}>
                 <FontAwesomeIcon icon={faArrowLeft} style={{color: '#B9B4C7',fontSize: '23px'}} />
                 <Text color={'#B9B4C7'} fontSize={'3xl'}>Status</Text>

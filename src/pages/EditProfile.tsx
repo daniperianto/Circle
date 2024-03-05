@@ -1,5 +1,5 @@
 import { Box, Flex, VStack, Image, HStack, Text, Input, Textarea, Button } from "@chakra-ui/react";
-import Nav from "../components/LayoutComponent/Nav";
+import Nav from "../components/Layout/Component/Nav.tsx";
 import React, { useEffect, useState } from "react";
 import User from "../model/User";
 import { API } from "../libs/api";

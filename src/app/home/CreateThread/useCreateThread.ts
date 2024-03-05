@@ -1,41 +1,29 @@
-import { useQuery } from "@tanstack/react-query";
-import { API } from "../libs/api";
 
 import { FormEvent } from "react";
 import React from "react";
+import {API} from "../../../libs/api.ts";
 
 interface NewThread {
     content: string,
     image?: Blob | MediaSource | string
 }
 
-export function useThread() {
-    const [form, setform] = React.useState<NewThread>({
+export function useCreateThread() {
+    const [form, setForm] = React.useState<NewThread>({
         content: "",
         image: ""
     })
-
-    async function getThreads() {
-        try {
-            const response = await API.get("/thread/all")
-            return response.data
-        } catch(error) {
-            throw new Error
-        }
-    }
-
-    const { data: threads, refetch } = useQuery({ queryKey: ['todos'], queryFn: getThreads})
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value, files } = e.target
 
         if(files) {
-            setform({
+            setForm({
                 ...form,
                 [name]: files[0]
             })
         } else {
-            setform({
+            setForm({
                 ...form,
                 [name]: value
             })
@@ -48,7 +36,7 @@ export function useThread() {
         fileInputRef.current?.click()
     }
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
         const formData = new FormData
@@ -56,17 +44,15 @@ export function useThread() {
         formData.append("content", form.content)
         formData.append("image", form.image as File)
 
-        API.post("/thread/add", formData)
-        setform({
+        await API.post("/thread/add", formData)
+        setForm({
             content: "",
             image: ""
         })
-        refetch()
     }
 
     return {
         form,
-        threads,
         handleChange,
         fileInputRef,
         handleClickButton,

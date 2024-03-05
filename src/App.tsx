@@ -1,17 +1,19 @@
-import { Navigate, Outlet, Route, Routes } from "react-router-dom"
-import Home from "./pages/Home"
+/* eslint-disable react-hooks/exhaustive-deps */
+// noinspection JSIgnoredPromiseFromCall
+
+import {Navigate, Outlet, Route, Routes} from "react-router-dom"
+import Home from "./app/home/Home.tsx"
 import Details from "./pages/Details"
-import Register from "./pages/Register"
-import Login from "./pages/Login"
-import Test from "./pages/Test"
+import Register from "./app/register/Register.tsx"
+import Login from "./app/login/Login.tsx"
 import { useDispatch } from "react-redux"
 import { API, setAuthToken } from "./libs/api"
 import { AUTH_ERROR } from "./store/rootReducer"
 import React from "react"
 import User from "./model/User"
-import Follows from "./pages/Follows"
-import Search from "./pages/Search"
-import Profile from "./pages/Profile"
+import Follows from "./app/follows/Follows.tsx"
+import Search from "./app/search/Search.tsx"
+import Profile from "./app/profile/Profile.tsx"
 import EditProfile from "./pages/EditProfile"
 
 export default function App() {
@@ -26,7 +28,7 @@ export default function App() {
     try {
       setAuthToken(localStorage.token)
 
-      await API.get("/check")
+      await API.get("/auth/check")
                         
 
     } catch (error) {
@@ -71,8 +73,7 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Route>
-      
-    <Route path="/test" element={<Test />} />
+
   </Routes>
   )
 } 

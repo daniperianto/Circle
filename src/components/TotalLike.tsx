@@ -12,7 +12,7 @@ export default function TotalLike(props: like) {
     
     try {
         useEffect(() => {
-            API.get(`/thread/${props.id}/likes`)
+            API.get(`/like/thread/${props.id}/count`)
                 .then(function (response) {
                     set_total_like(response.data)
                 })

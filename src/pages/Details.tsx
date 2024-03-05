@@ -1,7 +1,7 @@
 
 import { useParams } from "react-router-dom";
 import CardThreadDetails from "../components/DetailThreadComponent/CardThreadDetail";
-import Layout from "./Layout";
+import Layout from "../components/Layout/Layout.tsx";
 import ThreadReply from "../components/DetailThreadComponent/ThreadReply";
 
 export default function Details() {
